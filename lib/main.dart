@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'screen/home_screen.dart';
-import 'screen/root_app.dart';
+import 'screen/root_screen.dart';
 
 void main() {
   runApp(app);
@@ -9,11 +7,11 @@ void main() {
 
 Widget get app {
   return MaterialApp(
-      title: 'Flutter Netflix Clone',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: RootApp(),
-      debugShowCheckedModeBanner: false,
-    ); 
+    title: 'Flutter Netflix Clone',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: RootScreen(),
+    debugShowCheckedModeBanner: false,
+  );
 }

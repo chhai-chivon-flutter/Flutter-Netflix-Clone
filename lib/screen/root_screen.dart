@@ -1,36 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/json/root_app_json.dart';
-import 'package:netflix/screen/coming_soon_page.dart';
-import 'package:netflix/screen/download_page.dart';
-import 'package:netflix/screen/home_page.dart';
-import 'package:netflix/screen/search_page.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:netflix/screen/coming_soon_screen.dart';
+import 'package:netflix/screen/download_screen.dart';
+import 'package:netflix/screen/home_screen.dart';
+import 'package:netflix/screen/search_screen.dart';
 
-class RootApp extends StatefulWidget {
+class RootScreen extends StatefulWidget {
   @override
-  _RootAppState createState() => _RootAppState();
+  State<StatefulWidget> createState() {
+    return _State();
+  }
 }
 
-class _RootAppState extends State<RootApp> {
-
+class _State extends State<RootScreen> {
   int activeTab = 0;
+
+  List items = [
+    {"icon": AntDesign.home, "text": "Home"},
+    {"icon": AntDesign.playcircleo, "text": "Coming Soon"},
+    {"icon": AntDesign.search1, "text": "Search"},
+    {"icon": AntDesign.download, "text": "Downloads"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,
-      bottomNavigationBar: getFooter(),
-      body: getBody(),
+      bottomNavigationBar: _buildBottomNavigationBar,
+      body: _buildBody,
     );
   }
 
-  Widget getBody() {
+  Widget get _buildBody {
     return IndexedStack(
       index: activeTab,
-      children: [HomePage(), ComingSoonPage(), SearchPage(), DownloadPage()],
+      children: [
+        HomeScreen(),
+        ComingSoonScreen(),
+        SearchScreen(),
+        DownloadScreen()
+      ],
     );
   }
 
-  Widget getFooter() {
+  Widget get _buildBottomNavigationBar {
     return Container(
       height: 80,
       decoration: BoxDecoration(color: Colors.black),

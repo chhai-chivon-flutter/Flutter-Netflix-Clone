@@ -1,14 +1,13 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:netflix/screen/home_page.dart';
+import 'package:netflix/screen/home_screen.dart';
 
-class DownloadPage extends StatefulWidget {
+class DownloadScreen extends StatefulWidget {
   @override
-  _DownloadPageState createState() => _DownloadPageState();
+  _State createState() => _State();
 }
 
-class _DownloadPageState extends State<DownloadPage> {
+class _State extends State<DownloadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,7 +120,7 @@ class _DownloadPageState extends State<DownloadPage> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
                 },
                 child: Container(
                   height: 50,
